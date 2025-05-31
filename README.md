@@ -1,11 +1,10 @@
-
 # 5.1 - Despliegue de Nginx en nodo único con K3s
 
 ### Estructura del proyecto
 
 En esta imagen se muestra la estructura del proyecto en árbol. Se ha organizado el entorno de trabajo en carpetas: `logs` para los registros de instalación y comandos de verificación, `manifests` para los manifiestos Kubernetes, y `screenshots` para las capturas. Este orden facilita la trazabilidad del despliegue y permite documentar cada paso realizado.
 
-![Estructura del proyecto](screenshots/2025-05-28_12-44.png)
+![2025-05-28_12-44](https://github.com/user-attachments/assets/6d37e73e-1779-4172-beb6-ac34614a4226)
 
 ---
 
@@ -13,7 +12,7 @@ En esta imagen se muestra la estructura del proyecto en árbol. Se ha organizado
 
 Aquí se observa el proceso de instalación de K3s ejecutado mediante el script oficial. El sistema descarga, verifica y configura automáticamente el binario `k3s`, además de generar el servicio correspondiente (`k3s.service`) y activarlo correctamente. Esto permite inicializar el clúster Kubernetes de forma rápida en un entorno de un solo nodo.
 
-![Instalación de K3s](screenshots/2025-05-28_12-45.png)
+![2025-05-28_12-45](https://github.com/user-attachments/assets/712ff6fd-92d8-4477-8d24-6ee95e9f95b9)
 
 ---
 
@@ -21,7 +20,7 @@ Aquí se observa el proceso de instalación de K3s ejecutado mediante el script 
 
 Se muestran los comandos `kubectl get nodes` y `kubectl get pods -A` que validan que el clúster se encuentra en ejecución. El nodo principal está marcado como `Ready` y los pods del sistema (como CoreDNS, Traefik, metrics-server y otros) están funcionando correctamente en el namespace `kube-system`.
 
-![Verificación del clúster](screenshots/2025-05-28_12-46.png)
+![2025-05-28_12-46](https://github.com/user-attachments/assets/d38e8249-16ca-476c-8873-448411426fb3)
 
 ---
 
@@ -29,7 +28,7 @@ Se muestran los comandos `kubectl get nodes` y `kubectl get pods -A` que validan
 
 Mediante `kubectl apply -f nginx-deployment.yaml` se despliega un pod de Nginx en el clúster. El manifiesto aplica un `Deployment` con dos réplicas y un `Service` expuesto como LoadBalancer. El clúster ha aceptado correctamente ambos recursos, generando los objetos de Kubernetes sin errores.
 
-![Despliegue de Nginx](screenshots/2025-05-28_12-49.png)
+![2025-05-28_12-49](https://github.com/user-attachments/assets/66ae05d3-c3f7-474e-92ca-cfe6897ed9a8)
 
 ---
 
@@ -37,7 +36,7 @@ Mediante `kubectl apply -f nginx-deployment.yaml` se despliega un pod de Nginx e
 
 La imagen muestra la verificación de que el despliegue de Nginx se ha aplicado correctamente. Se observan los dos pods corriendo (`Running`) y el `Service` creado, que expone el puerto 8080 a través de una IP externa (`172.16.181.130`) en el entorno. Esto confirma que el tráfico puede acceder al servicio desde fuera del clúster.
 
-![Validación de recursos desplegados](screenshots/2025-05-28_12-50.png)
+![2025-05-28_12-50](https://github.com/user-attachments/assets/a65e4dfd-4069-4fd9-b787-a6d47cfc2ddb)
 
 ---
 
@@ -45,7 +44,7 @@ La imagen muestra la verificación de que el despliegue de Nginx se ha aplicado 
 
 Se accede al servicio Nginx desde un navegador mediante la IP externa y el puerto definido (8080). La aparición de la página por defecto de Nginx confirma que el despliegue fue exitoso y que la exposición del servicio a través de `LoadBalancer` funciona correctamente en el entorno de red local.
 
-![Acceso al servicio Nginx](screenshots/2025-05-28_12-52.png)
+![2025-05-28_12-52](https://github.com/user-attachments/assets/14bdcf30-2ba7-4c67-bdd5-db88475acd6f)
 
 ---
 
@@ -53,7 +52,9 @@ Se accede al servicio Nginx desde un navegador mediante la IP externa y el puert
 
 Desde la herramienta `K9s`, se validan los pods en tiempo real. Ambos pods desplegados por el `nginx-deployment` están en estado `Running`, con recursos correctamente asignados. También se verifica el nodo donde se ejecutan, que en este caso es `pedro-virtual-machine`, confirmando que todo el entorno funciona como se espera.
 
-![Validación con K9s](screenshots/2025-05-28_12-59.png)
+![2025-05-28_12-59](https://github.com/user-attachments/assets/e5149d19-c7b1-4a0c-9830-4136ae21d28c)
+
+---
 
 
 # 5.2 - Despliegue de clúster K3s en modo HA
