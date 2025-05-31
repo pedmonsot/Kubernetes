@@ -1,0 +1,2 @@
+NAME                    STATUS   ROLES                  AGE     VERSION
+pedro-virtual-machine   Ready    control-plane,master   2m42s   v1.32.5+k3s1

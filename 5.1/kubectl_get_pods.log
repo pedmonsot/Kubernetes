@@ -1,0 +1,8 @@
+NAMESPACE     NAME                                      READY   STATUS      RESTARTS   AGE
+kube-system   coredns-697968c856-h2pcl                  1/1     Running     0          2m36s
+kube-system   helm-install-traefik-crd-7rhlx            0/1     Completed   0          2m36s
+kube-system   helm-install-traefik-kghvr                0/1     Completed   0          2m36s
+kube-system   local-path-provisioner-774c6665dc-c6xbg   1/1     Running     0          2m36s
+kube-system   metrics-server-6f4c6675d5-lbl8v           1/1     Running     0          2m36s
+kube-system   svclb-traefik-6adcd301-8wxb4              2/2     Running     0          2m22s
+kube-system   traefik-c98fdf6fb-dgdbl                   1/1     Running     0          2m22s
