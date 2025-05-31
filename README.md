@@ -65,7 +65,7 @@ A continuación se muestran las evidencias del despliegue exitoso de un clúster
 
 Se muestra la estructura del directorio de trabajo, que incluye los logs de instalación, los manifiestos YAML utilizados y las capturas de pantalla generadas a lo largo del proceso.
 
-[2025-05-28_13-36.png]
+![2025-05-28_13-36](https://github.com/user-attachments/assets/7f8a7624-19af-49bc-99ce-f70347ea8977)
 
 ---
 
@@ -73,7 +73,7 @@ Se muestra la estructura del directorio de trabajo, que incluye los logs de inst
 
 Se ejecuta la instalación de `k3s` en modo `cluster-init`, desactivando Traefik, para preparar el nodo como master del clúster en alta disponibilidad.
 
-[2025-05-28_13-54.png]
+![2025-05-28_13-54](https://github.com/user-attachments/assets/75248453-ebef-48b5-8a77-04bcba0a75af)
 
 ---
 
@@ -81,7 +81,7 @@ Se ejecuta la instalación de `k3s` en modo `cluster-init`, desactivando Traefik
 
 Tras completar la instalación del servidor, se verifica que el nodo `k3s-serverx` esté en estado `Ready` y que el puerto 6443 (usado por el API server) esté en escucha.
 
-[2025-05-28_13-55.png]
+![2025-05-28_13-55](https://github.com/user-attachments/assets/e73ced8b-c522-405d-ae9a-eb6b0ef5a1b3)
 
 ---
 
@@ -89,7 +89,7 @@ Tras completar la instalación del servidor, se verifica que el nodo `k3s-server
 
 Se obtiene el token de unión necesario para agregar los agentes al clúster. Este token se utilizará como variable de entorno al instalar los agentes.
 
-[2025-05-28_13-57.png]
+![2025-05-28_13-57](https://github.com/user-attachments/assets/162b2e79-17e5-4715-96eb-94a8bb6f277d)
 
 ---
 
@@ -97,7 +97,7 @@ Se obtiene el token de unión necesario para agregar los agentes al clúster. Es
 
 Se vuelve a comprobar el estado del nodo `k3s-serverx` antes de añadir los agentes, confirmando que sigue operativo y registrado como `master`.
 
-[2025-05-28_14-11.png]
+![2025-05-28_14-11](https://github.com/user-attachments/assets/cfcb8305-497f-4d49-addf-d5c00468981f)
 
 ---
 
@@ -105,7 +105,7 @@ Se vuelve a comprobar el estado del nodo `k3s-serverx` antes de añadir los agen
 
 Se instala K3s en cada uno de los agentes (agent1 y agent2), utilizando el token previamente obtenido y apuntando a la IP del servidor maestro. La instalación fue exitosa y no se requirió reiniciar el servicio en el agente donde ya estaba activo.
 
-[2025-05-29_11-44.png]
+![2025-05-29_11-44](https://github.com/user-attachments/assets/00e4cc69-ace3-4890-a0a0-6a9d8f9aaf11)
 
 ---
 
@@ -113,7 +113,7 @@ Se instala K3s en cada uno de los agentes (agent1 y agent2), utilizando el token
 
 Se comprueba que tanto el nodo master como los dos agentes están en estado `Ready` y correctamente identificados por el clúster, con sus respectivas IPs internas y sistemas operativos.
 
-[2025-05-31_19-57.png]
+![2025-05-31_19-57](https://github.com/user-attachments/assets/aeb147a4-c9b1-4ba9-8638-44963ab654ca)
 
 ---
 
@@ -121,7 +121,7 @@ Se comprueba que tanto el nodo master como los dos agentes están en estado `Rea
 
 Se despliega una aplicación de ejemplo (nginx) mediante un manifiesto YAML que crea dos réplicas y un servicio NodePort para su exposición.
 
-[2025-05-31_19-59.png]
+![2025-05-31_19-59](https://github.com/user-attachments/assets/28543151-fc42-4a90-bc8b-ecc5ca1de8eb)
 
 ---
 
@@ -129,7 +129,7 @@ Se despliega una aplicación de ejemplo (nginx) mediante un manifiesto YAML que 
 
 Se comprueba que los dos pods de nginx estén corriendo, distribuidos en los agentes, y que el servicio `nginx-service` esté activo con el puerto NodePort asignado.
 
-[2025-05-31_20-00.png]
+![2025-05-31_20-00](https://github.com/user-attachments/assets/56d47ed7-573c-40f9-8c79-cd7db7f8efaa)
 
 ---
 
@@ -137,7 +137,7 @@ Se comprueba que los dos pods de nginx estén corriendo, distribuidos en los age
 
 Se accede a K9s para validar gráficamente que los pods del deployment están activos y correctamente repartidos entre `agent1` y `agent2`.
 
-[2025-05-31_20-04.png]
+![2025-05-31_20-04](https://github.com/user-attachments/assets/b7ec2da2-1697-4976-a544-b556816fb779)
 
 ---
 
@@ -145,7 +145,7 @@ Se accede a K9s para validar gráficamente que los pods del deployment están ac
 
 Finalmente, se revisan los logs de uno de los pods de nginx, donde se confirma que el contenedor se ha iniciado correctamente y está escuchando peticiones HTTP.
 
-[2025-05-31_20-06.png]
+![2025-05-31_20-06](https://github.com/user-attachments/assets/726a7fce-4d44-44f5-8ef6-81d7e1e3d424)
 
 ---
 
