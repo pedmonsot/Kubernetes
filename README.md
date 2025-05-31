@@ -156,7 +156,7 @@ Finalmente, se revisan los logs de uno de los pods de nginx, donde se confirma q
 
 En esta primera imagen se muestra la creación del archivo `docker-compose.yml`, donde se definen los servicios `nginx` y `redis`. A continuación, se procede a instalar la herramienta `kompose`, necesaria para convertir archivos de Docker Compose en manifiestos compatibles con Kubernetes.
 
-![Instalación de kompose y creación del docker-compose](screenshots/2025-05-31_20-23.png)
+![2025-05-31_20-23](https://github.com/user-attachments/assets/ae30b8d1-9e0d-457a-8cb1-72d85af66b76)
 
 ---
 
@@ -164,7 +164,7 @@ En esta primera imagen se muestra la creación del archivo `docker-compose.yml`,
 
 Una vez instalado `kompose`, se ejecuta el comando `kompose convert`, que genera automáticamente los archivos YAML necesarios para desplegar los servicios definidos. En este caso se crean cuatro archivos: `nginx-deployment.yaml`, `nginx-service.yaml`, `redis-deployment.yaml` y `redis-service.yaml`.
 
-![Conversión de docker-compose a manifiestos de Kubernetes con kompose](screenshots/2025-05-31_20-24.png)
+![2025-05-31_20-24](https://github.com/user-attachments/assets/8ebc1539-ecd8-4833-96dd-8a398523f46b)
 
 ---
 
@@ -172,7 +172,7 @@ Una vez instalado `kompose`, se ejecuta el comando `kompose convert`, que genera
 
 Se realiza el despliegue de todos los manifiestos generados utilizando `kubectl apply -f .`. Aunque se genera un mensaje de advertencia por intentar aplicar nuevamente el archivo `docker-compose.yml`, los recursos de Kubernetes se crean correctamente.
 
-![Aplicación de los manifiestos generados](screenshots/2025-05-31_20-25.png)
+![2025-05-31_20-25](https://github.com/user-attachments/assets/077ed4ee-44ef-4068-acfc-b71e5d092ea4)
 
 ---
 
@@ -180,7 +180,7 @@ Se realiza el despliegue de todos los manifiestos generados utilizando `kubectl 
 
 La imagen muestra el resultado del comando `kubectl get all`, donde se puede verificar que tanto los pods como los servicios y los despliegues para `nginx` y `redis` están en estado `Running`. Se observa también que los recursos han sido replicados correctamente.
 
-![Comprobación de recursos desplegados](screenshots/2025-05-31_20-26.png)
+![2025-05-31_20-26](https://github.com/user-attachments/assets/54abc508-f650-434d-9e5d-ecdd1072290c)
 
 ---
 
@@ -188,4 +188,5 @@ La imagen muestra el resultado del comando `kubectl get all`, donde se puede ver
 
 Desde la interfaz de K9s se accede al apartado de servicios, donde se confirma que `nginx-service` ha sido expuesto mediante NodePort y `redis` a través de ClusterIP. Ambos servicios están activos y visibles en el entorno gráfico, validando así el correcto funcionamiento del despliegue.
 
-![Validación de servicios en K9s](screenshots/2025-05-31_20-27.png)
+![2025-05-31_20-27](https://github.com/user-attachments/assets/485dfb76-538e-48f8-aea1-c0076996ad54)
+
